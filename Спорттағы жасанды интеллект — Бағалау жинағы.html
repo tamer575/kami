@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/timai/Downloads/ai%20sport%20assessment%20(1).html -->
+<html lang="kk"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спорттағы жасанды интеллект — Бағалау жинағы</title>
+<link href="./Спорттағы жасанды интеллект — Бағалау жинағы_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --card: #111827;
+    --card2: #161d2e;
+    --accent: #00e5ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --gold: #f59e0b;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --border: rgba(0,229,255,0.12);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content:'';
+    position:fixed;
+    top:-200px; left:-200px;
+    width:600px; height:600px;
+    background: radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  body::after {
+    content:'';
+    position:fixed;
+    bottom:-200px; right:-200px;
+    width:700px; height:700px;
+    background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 60px 0 50px;
+    position: relative;
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,229,255,0.08);
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .header-badge::before { content:'⚡'; }
+
+  header h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+
+  header p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    margin: 32px auto 0;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 56px 0 28px;
+  }
+  .section-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .icon-blue { background: rgba(0,229,255,0.12); border: 1px solid rgba(0,229,255,0.3); }
+  .icon-purple { background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3); }
+  .icon-green { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); }
+
+  .section-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .section-subtitle { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+  /* QUESTION CARDS */
+  .question-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .question-card:hover { border-color: rgba(0,229,255,0.25); }
+
+  .q-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .q-number {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent2), #4f46e5);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .q-text {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #f1f5f9;
+    flex: 1;
+  }
+
+  .difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  .diff-b { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+  .diff-o { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+  .diff-zh { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media(max-width:600px){ .options-grid { grid-template-columns: 1fr; } }
+
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+  .option.correct {
+    background: rgba(16,185,129,0.1);
+    border-color: rgba(16,185,129,0.35);
+    color: #d1fae5;
+  }
+  .option-letter {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    background: rgba(255,255,255,0.08);
+    color: var(--muted);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .option.correct .option-letter {
+    background: rgba(16,185,129,0.25);
+    color: #10b981;
+  }
+  .check-icon { margin-left: auto; flex-shrink: 0; color: #10b981; font-size: 14px; }
+
+  /* OPEN QUESTIONS */
+  .open-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--accent2);
+  }
+
+  .open-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .meta-tag {
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .tag-level { background: rgba(124,58,237,0.15); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
+  .tag-type { background: rgba(0,229,255,0.08); color: var(--accent); border: 1px solid rgba(0,229,255,0.2); }
+  .tag-points { background: rgba(245,158,11,0.12); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+
+  .open-q-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #f1f5f9;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .requirements-box {
+    background: rgba(0,229,255,0.04);
+    border: 1px solid rgba(0,229,255,0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .req-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .req-list { list-style: none; }
+  .req-list li {
+    font-size: 13px;
+    color: #94a3b8;
+    padding: 3px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .req-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 11px;
+  }
+
+  /* RUBRIC */
+  .rubric-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+
+  .rubric-table th {
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    text-align: center;
+    background: rgba(0,229,255,0.06);
+    border-bottom: 1px solid var(--border);
+  }
+  .rubric-table th:first-child { text-align: left; }
+  .rubric-table td {
+    padding: 14px 16px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+  .rubric-table tr:last-child td { border-bottom: none; }
+  .rubric-table td:first-child {
+    font-weight: 600;
+    color: #e2e8f0;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.02);
+  }
+  .rubric-table td:not(:first-child) {
+    color: #94a3b8;
+    text-align: center;
+  }
+
+  .level-header {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .l1 { color: #ef4444; }
+  .l2 { color: #f59e0b; }
+  .l3 { color: #3b82f6; }
+  .l4 { color: #10b981; }
+
+  .score-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .sp1 { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .sp2 { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .sp3 { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .sp4 { background: rgba(16,185,129,0.15); color: #10b981; }
+
+  .total-row td {
+    background: rgba(0,229,255,0.05) !important;
+    border-top: 1px solid rgba(0,229,255,0.2);
+    font-weight: 600;
+    color: var(--accent) !important;
+    font-size: 13px !important;
+  }
+  .total-row td:first-child { color: #fff !important; }
+
+  .legend-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; color: #111; }
+    .question-card, .open-card { background: #f9fafb; border-color: #e5e7eb; }
+    header h1 { -webkit-text-fill-color: #111; }
+  }
+
+  .page-break { display: none; }
+  @media print { .page-break { display: block; page-break-before: always; } }
+
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-badge">Тапсырма 4 · Бағалау жинағы</div>
+    <h1>Спорттағы<br>Жасанды Интеллект</h1>
+    <p>10 тест сұрағы · 5 ашық сұрақ · Бағалау рубрикасы</p>
+    <div class="divider"></div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       БӨЛІМ 1: ТЕСТ СҰРАҚТАРЫ
+  ════════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-icon icon-blue">🧠</div>
+    <div>
+      <div class="section-title">I БӨЛІМ — Тест сұрақтары</div>
+      <div class="section-subtitle">10 сұрақ · 3–4 жауап нұсқасы · Бір дұрыс жауап</div>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">1</div>
+      <div class="q-text">Спорттағы жасанды интеллект ең алдымен қандай мақсатта қолданылады?</div>
+      <span class="difficulty-badge diff-b">Б</span>
+    </div>
+    <div class="options-grid">
+      <div class="option correct">
+        <div class="option-letter">А</div>
+        <span>Спортшылардың нәтижесін талдау және болжау</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Б</div>
+        <span>Спорт зауыттарын автоматты басқару</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">В</div>
+        <span>Тек медиа-трансляцияларды жасау</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Спортшы формасын тігу</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">2</div>
+      <div class="q-text">VAR (Video Assistant Referee) технологиясы футболда не үшін қолданылады?</div>
+      <span class="difficulty-badge diff-b">Б</span>
+    </div>
+    <div class="options-grid">
+      <div class="option">
+        <div class="option-letter">А</div>
+        <span>Допты автоматты лақтыру</span>
+      </div>
+      <div class="option correct">
+        <div class="option-letter">Б</div>
+        <span>Даулы жағдайларды бейне жазбадан қайта қарау</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">В</div>
+        <span>Ойыншылар арасындағы байланысты қамтамасыз ету</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Дала температурасын бақылау</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">3</div>
+      <div class="q-text">Машиналық оқыту спорттық командаларға жарыс стратегиясын жасауда қалай көмектеседі?</div>
+      <span class="difficulty-badge diff-o">О</span>
+    </div>
+    <div class="options-grid">
+      <div class="option">
+        <div class="option-letter">А</div>
+        <span>Жаттықтырушының орнына шешім қабылдайды</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Б</div>
+        <span>Ойыншыларды автоматты тіркейді</span>
+      </div>
+      <div class="option correct">
+        <div class="option-letter">В</div>
+        <span>Бәсекелес команданың деректерін талдап, осал тұстарын анықтайды</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Стадионның орналасуын жобалайды</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">4</div>
+      <div class="q-text">Спортшылардың жарақат алу қаупін болжауда ЖИ қандай деректерді пайдаланады?</div>
+      <span class="difficulty-badge diff-o">О</span>
+    </div>
+    <div class="options-grid">
+      <div class="option">
+        <div class="option-letter">А</div>
+        <span>Тек жас ерекшеліктерін</span>
+      </div>
+      <div class="option correct">
+        <div class="option-letter">Б</div>
+        <span>Биомеханикалық, физиологиялық және тарихи жарақат деректерін</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">В</div>
+        <span>Тек ойыншының бойы мен салмағын</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Ауа-райы деректерін ғана</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-text">Компьютерлік көру (computer vision) спорттың қандай саласында ең кеңінен қолданылады?</div>
+      <span class="difficulty-badge diff-b">Б</span>
+    </div>
+    <div class="options-grid">
+      <div class="option">
+        <div class="option-letter">А</div>
+        <span>Спорт ғимараттарын жобалауда</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Б</div>
+        <span>Спорттық азық-түлік өндірісінде</span>
+      </div>
+      <div class="option correct">
+        <div class="option-letter">В</div>
+        <span>Ойыншы қозғалысын бақылау және техниканы талдауда</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Спорт ережелерін жазуда</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">6</div>
+      <div class="q-text">NBA командалары ЖИ-ді қолданып, ойын барысында қандай стратегиялық шешімдер қабылдайды?</div>
+      <span class="difficulty-badge diff-o">О</span>
+    </div>
+    <div class="options-grid">
+      <div class="option correct">
+        <div class="option-letter">А</div>
+        <span>Сауыт ату нүктелерін оңтайландыру және қорғаныс позицияларын болжау</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Б</div>
+        <span>Ойыншыларды жаттықтырушының орнына алмастыру</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">В</div>
+        <span>Спорт залын автоматты жабу</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">7</div>
+      <div class="q-text">«Болжамды талдау» (predictive analytics) спорттағы ЖИ-де не дегенді білдіреді?</div>
+      <span class="difficulty-badge diff-zh">Ж</span>
+    </div>
+    <div class="options-grid">
+      <div class="option">
+        <div class="option-letter">А</div>
+        <span>Нақты уақыттағы ойын нәтижесін трансляциялау</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Б</div>
+        <span>Ойыншы киімін жобалау</span>
+      </div>
+      <div class="option correct">
+        <div class="option-letter">В</div>
+        <span>Тарихи деректер негізінде болашақ нәтижелерді статистикалық болжау</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Спорт жарнамасын автоматты жасау</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">8</div>
+      <div class="q-text">ЖИ-дің спортта қолданылуы қандай этикалық мәселе туғызуы мүмкін?</div>
+      <span class="difficulty-badge diff-zh">Ж</span>
+    </div>
+    <div class="options-grid">
+      <div class="option">
+        <div class="option-letter">А</div>
+        <span>Стадион сыйымдылығын арттыру</span>
+      </div>
+      <div class="option correct">
+        <div class="option-letter">Б</div>
+        <span>Жеке деректердің жинақталуы және жаттықтырушының рөлінің төмендеуі</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">В</div>
+        <span>Спорт нәтижелерінің жоғарылауы</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Билет бағасының өсуі</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">9</div>
+      <div class="q-text">«Wearable» құрылғылары спорттағы ЖИ жүйелеріне қандай деректер береді?</div>
+      <span class="difficulty-badge diff-o">О</span>
+    </div>
+    <div class="options-grid">
+      <div class="option">
+        <div class="option-letter">А</div>
+        <span>Тек ойын ұпайларын</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Б</div>
+        <span>Тек ауа-райы жағдайын</span>
+      </div>
+      <div class="option correct">
+        <div class="option-letter">В</div>
+        <span>Жүрек соғысы, оттегі деңгейі, жылдамдық, бышқыл мөлшері сияқты физиологиялық деректер</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Тек бейнежазбаларды</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-number">10</div>
+      <div class="q-text">ЖИ негізіндегі автоматты хаттама жүйесі (automated commentary) теледидарда спортқа қандай үлес қосады?</div>
+      <span class="difficulty-badge diff-zh">Ж</span>
+    </div>
+    <div class="options-grid">
+      <div class="option">
+        <div class="option-letter">А</div>
+        <span>Спорт ережелерін автоматты өзгертеді</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Б</div>
+        <span>Ойыншылардың жалақысын есептейді</span>
+      </div>
+      <div class="option correct">
+        <div class="option-letter">В</div>
+        <span>Нақты уақытта статистика мен оқиғаларды дауыстық түрде жеткізіп, тілдік кедергіні жояды</span>
+        <span class="check-icon">✓</span>
+      </div>
+      <div class="option">
+        <div class="option-letter">Г</div>
+        <span>Трансляция жылдамдығын баяулатады</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend-row">
+    <div class="legend-item"><div class="legend-dot" style="background:#10b981"></div> Б — Базалық деңгей</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div> О — Орта деңгей</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div> Ж — Жоғары деңгей</div>
+    <div class="legend-item" style="color:#94a3b8">✓ — Дұрыс жауап</div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       БӨЛІМ 2: АШЫҚ СҰРАҚТАР
+  ════════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-icon icon-purple">📝</div>
+    <div>
+      <div class="section-title">II БӨЛІМ — Ашық сұрақтар</div>
+      <div class="section-subtitle">5 сұрақ · Жауап деңгейі мен талаптары көрсетілген</div>
+    </div>
+  </div>
+
+  <!-- OQ1 -->
+  <div class="open-card">
+    <div class="open-meta">
+      <span class="meta-tag tag-level">Б деңгейі</span>
+      <span class="meta-tag tag-type">Түсіндіру</span>
+      <span class="meta-tag tag-points">5 балл</span>
+    </div>
+    <div class="open-q-text">1. Жасанды интеллект дегеніміз не? Спорт саласында ЖИ-дің ең негізгі 3 қолданысын атап, қысқаша түсіндіріңіз.</div>
+    <div class="requirements-box">
+      <div class="req-title">Жауап талаптары</div>
+      <ul class="req-list">
+        <li>ЖИ-ге нақты анықтама беру (1–2 сөйлем)</li>
+        <li>Спортқа тән 3 нақты мысал келтіру</li>
+        <li>Әр мысалды 1–2 сөйлеммен түсіндіру</li>
+        <li>Минималды көлем: 100 сөз</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OQ2 -->
+  <div class="open-card">
+    <div class="open-meta">
+      <span class="meta-tag tag-level">О деңгейі</span>
+      <span class="meta-tag tag-type">Салыстыру</span>
+      <span class="meta-tag tag-points">10 балл</span>
+    </div>
+    <div class="open-q-text">2. VAR технологиясы мен дәстүрлі төрешілік жүйесін салыстырыңыз. ЖИ-дің дәлдікке және спорт әділдігіне тигізетін әсерін дәлелдермен талдаңыз.</div>
+    <div class="requirements-box">
+      <div class="req-title">Жауап талаптары</div>
+      <ul class="req-list">
+        <li>Екі жүйенің артықшылықтары мен кемшіліктерін нақты атау</li>
+        <li>Нақты спорт мысалдарын немесе статистиканы пайдалану</li>
+        <li>Екі жақты ой-пікір (объективті баға)</li>
+        <li>Қорытынды ұстаным білдіру</li>
+        <li>Минималды көлем: 180 сөз</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OQ3 -->
+  <div class="open-card">
+    <div class="open-meta">
+      <span class="meta-tag tag-level">О деңгейі</span>
+      <span class="meta-tag tag-type">Қолдану / Талдау</span>
+      <span class="meta-tag tag-points">10 балл</span>
+    </div>
+    <div class="open-q-text">3. Спортшылардың жарақат алуының алдын алуда ЖИ қалай қолданылады? Нейрондық желілер мен биомеханикалық деректердің рөлін нақты мысалмен түсіндіріңіз.</div>
+    <div class="requirements-box">
+      <div class="req-title">Жауап талаптары</div>
+      <ul class="req-list">
+        <li>Биомеханика, физиология деректерінің маңызын түсіндіру</li>
+        <li>ЖИ моделі деректерді қалай өңдейтінін сипаттау</li>
+        <li>Нақты спортшы, команда немесе зерттеу мысалы</li>
+        <li>Шектеулер мен болашағын ескеру</li>
+        <li>Минималды көлем: 200 сөз</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OQ4 -->
+  <div class="open-card">
+    <div class="open-meta">
+      <span class="meta-tag tag-level">Ж деңгейі</span>
+      <span class="meta-tag tag-type">Сыни талдау / Дәлелдеу</span>
+      <span class="meta-tag tag-points">15 балл</span>
+    </div>
+    <div class="open-q-text">4. «Жасанды интеллект спорттағы адам факторын толығымен алмастырады» тезисіне қатысты өз көзқарасыңызды этикалық, техникалық және психологиялық аргументтер негізінде дәлелдеңіз.</div>
+    <div class="requirements-box">
+      <div class="req-title">Жауап талаптары</div>
+      <ul class="req-list">
+        <li>Нақты ұстаным — «иә» немесе «жоқ» немесе «ішінара»</li>
+        <li>Кемінде 3 аргумент (этикалық, техникалық, психологиялық)</li>
+        <li>Қарсы пікірді де қарастырып, жоққа шығару</li>
+        <li>Академиялық дереккөз немесе нақты мысал</li>
+        <li>Логикалық қорытынды — болашаққа болжам</li>
+        <li>Минималды көлем: 250 сөз</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OQ5 -->
+  <div class="open-card">
+    <div class="open-meta">
+      <span class="meta-tag tag-level">Ж деңгейі</span>
+      <span class="meta-tag tag-type">Шығармашылық / Жобалау</span>
+      <span class="meta-tag tag-points">15 балл</span>
+    </div>
+    <div class="open-q-text">5. Қазақстандық спорт командаларына арналған ЖИ негізіндегі жаттықтыру жүйесін жобалаңыз. Жүйенің мақсатын, функцияларын, қолданылатын деректерді және күтілетін нәтижелерді сипаттаңыз.</div>
+    <div class="requirements-box">
+      <div class="req-title">Жауап талаптары</div>
+      <ul class="req-list">
+        <li>Нақты спорт түрін таңдау және негіздеу</li>
+        <li>Жүйенің мақсаты мен негізгі функциялары (кемінде 4)</li>
+        <li>Деректер көздері мен технологиялар стегі</li>
+        <li>Қазақстан контекстіне байланысты мүмкіндіктер мен шектеулер</li>
+        <li>Нәтижені өлшейтін 2–3 индикатор</li>
+        <li>Минималды көлем: 280 сөз</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       БӨЛІМ 3: БАҒАЛАУ РУБРИКАСЫ
+  ════════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-icon icon-green">📊</div>
+    <div>
+      <div class="section-title">III БӨЛІМ — Бағалау рубрикасы</div>
+      <div class="section-subtitle">4 деңгей · 5 критерий · Ашық сұрақтарды бағалауға арналған</div>
+    </div>
+  </div>
+
+  <table class="rubric-table">
+    <thead>
+      <tr>
+        <th>Критерий</th>
+        <th>
+          <span class="level-header l1">Бастапқы</span>
+          <span class="score-pill sp1">1 балл</span>
+        </th>
+        <th>
+          <span class="level-header l2">Дамушы</span>
+          <span class="score-pill sp2">2 балл</span>
+        </th>
+        <th>
+          <span class="level-header l3">Орта</span>
+          <span class="score-pill sp3">3 балл</span>
+        </th>
+        <th>
+          <span class="level-header l4">Жоғары</span>
+          <span class="score-pill sp4">4 балл</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>📚 Мазмұн<br><small style="color:#64748b;font-weight:400">Тақырыпты меңгеру</small></td>
+        <td>Негізгі ұғымдар жоқ немесе қате. Жауап тақырыпқа сәйкес емес.</td>
+        <td>Кейбір ұғымдар дұрыс, бірақ толық емес. Мысалдар жалпылама.</td>
+        <td>Негізгі ұғымдар дұрыс. Нақты мысалдар бар, бірақ тереңдіктен жетіспейді.</td>
+        <td>Барлық ұғымдар дәл, терең. Нақты деректер, нақты мысалдар, толық меңгеру.</td>
+      </tr>
+      <tr>
+        <td>🔗 Логика<br><small style="color:#64748b;font-weight:400">Ой жүйесі</small></td>
+        <td>Жауап байланыссыз, ретсіз. Ой тізбегі жоқ.</td>
+        <td>Негізгі ой бар, бірақ бөліктер арасында байланыс жетіспейді.</td>
+        <td>Жауап жүйелі, дәйекті. Кіріспе–негізгі бөлім–қорытынды бар.</td>
+        <td>Жауап мінсіз логикалық құрылымда. Ой дамуы айқын, бөліктер органикалық байланысқан.</td>
+      </tr>
+      <tr>
+        <td>💡 Дәлелдеу<br><small style="color:#64748b;font-weight:400">Аргументтер</small></td>
+        <td>Дәлел жоқ, тек тұжырым. Пікір негізсіз.</td>
+        <td>1–2 жалпы дәлел бар, бірақ нақты факт немесе мысал жоқ.</td>
+        <td>2–3 нақты аргумент, мысалмен немесе статистикамен бекітілген.</td>
+        <td>3+ күшті аргумент. Қарсы пікір қаралған. Деректер мен ғылыми мысалдармен расталған.</td>
+      </tr>
+      <tr>
+        <td>✍️ Рәсімдеу<br><small style="color:#64748b;font-weight:400">Тіл &amp; Безендіру</small></td>
+        <td>Грамматикалық қателер өте көп. Стиль жоқ. Оқуға қиын.</td>
+        <td>Бірқатар қателер бар. Тіл орташа. Безендіруге аз мән берілген.</td>
+        <td>Тіл анық. Аздаған қателер. Параграфтар жүйелі. Сауатты жазылған.</td>
+        <td>Мінсіз грамматика. Академиялық тіл. Терминологияны дұрыс қолданады. Оқуға жеңіл, сылдырлы.</td>
+      </tr>
+      <tr>
+        <td>🌐 Сыни ойлау<br><small style="color:#64748b;font-weight:400">Талдау тереңдігі</small></td>
+        <td>Ақпаратты жаттанды қайталайды. Өз пікірі жоқ.</td>
+        <td>Жауапта кейбір пайымдаулар бар, бірақ беттік деңгейде.</td>
+        <td>Салыстыру, болжам, сыни баға бар. Мәселенің екі жағы қарастырылған.</td>
+        <td>Терең сыни талдау. Ерекше ұстаным. Болашаққа болжам, шешім ұсынысы. Шығармашылық тәсіл.</td>
+      </tr>
+      <tr class="total-row">
+        <td>📊 Барлығы</td>
+        <td>1–5 балл<br><small>Бастапқы деңгей</small></td>
+        <td>6–10 балл<br><small>Базалық деңгей</small></td>
+        <td>11–15 балл<br><small>Орта деңгей</small></td>
+        <td>16–20 балл<br><small>Жоғары деңгей</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="legend-row" style="margin-top:16px; gap:24px;">
+    <div class="legend-item"><span class="score-pill sp1" style="font-size:11px">1 балл</span> Бастапқы — тапсырма іс жүзінде орындалмаған</div>
+    <div class="legend-item"><span class="score-pill sp2" style="font-size:11px">2 балл</span> Дамушы — ішінара меңгерілген</div>
+    <div class="legend-item"><span class="score-pill sp3" style="font-size:11px">3 балл</span> Орта — жеткілікті деңгей</div>
+    <div class="legend-item"><span class="score-pill sp4" style="font-size:11px">4 балл</span> Жоғары — үлгілі жауап</div>
+  </div>
+
+
+  <div class="footer">
+    Тапсырма 4 · <span>Спорттағы Жасанды Интеллект</span><br>
+    I бөлім: 10 тест сұрағы &nbsp;·&nbsp; II бөлім: 5 ашық сұрақ &nbsp;·&nbsp; III бөлім: Бағалау рубрикасы (5 критерий × 4 деңгей = 20 балл)
+  </div>
+
+</div>
+
+
+</body></html>
